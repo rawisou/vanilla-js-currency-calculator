@@ -15,6 +15,7 @@ currencyTwo.addEventListener('change', calculateRate)
 amountOne.addEventListener('input', calculateRate)
 amountTwo.addEventListener('input', calculateRate)
 
+
 //main function
 function calculateRate() {
     const fromCurrency = currencyOne.value
@@ -32,5 +33,16 @@ function calculateRate() {
 
         })
 }
+
+//swap currency
+
+swapCurrencyButton.addEventListener('click', () => {
+    const store = currencyOne.value 
+    //store the from currency as the currencyOne will store the currencyTwo
+    currencyOne.value = currencyTwo.value
+    currencyTwo.value = store
+    //call the calculateRate function for the currency calculator to work
+    calculateRate()
+})
 
 calculateRate()
